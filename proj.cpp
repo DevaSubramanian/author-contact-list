@@ -6,7 +6,7 @@ struct detail
 {
 	char na[20],au[20];
 	int vr,yr,pr;
-}k[100];
+}dataBase[100];
 int comparator(const void *p,const void * q)
 {
 	int l=((struct detail *)p)->pr;
@@ -22,37 +22,31 @@ int main()
 	for(i=0;i<=(m-1);i++)
 	{
 		printf("Enter book name,author name,version,year,price in order");
-		scanf("%s%s%d%d%d",&k[i].na,&k[i].au,&k[i].vr,&k[i].yr,&k[i].pr);
+		scanf("%s%s%d%d%d",&dataBase[i].na,&dataBase[i].au,&dataBase[i].vr,&dataBase[i].yr,&dataBase[i].pr);
 	}
     printf("enter the author name");
 	scanf("%s",n);
 	for(i=0;i<=(m-1);i++)
   	{
-	    if(strcmp(n,k[i].au) == 0)
+	    if(strcmp(n,dataBase[i].au) == 0)
 	    {
-		printf("book name :%s\nauthor :%s\nVesion :%d\nYear :%d\nPrice :%d\n",k[i].na,k[i].au,k[i].vr,k[i].yr,k[i].pr);
+		printf("book name :%s\nauthor :%s\nVesion :%d\nYear :%d\nPrice :%d\n",dataBase[i].na,dataBase[i].au,dataBase[i].vr,dataBase[i].yr,dataBase[i].pr);
 	    }
     } 
     printf("enter the publication year");
     scanf("%d",&y);
     for(i=0;i<=(m-1);i++)
 	{
-    	if(y==k[i].yr)
+    	if(y==dataBase[i].yr)
     	{
-    		printf("book name :%s\nauthor :%s\nVesion :%d\nYear :%d\nPrice :%d\n",k[i].na,k[i].au,k[i].vr,k[i].yr,k[i].pr);
+    		printf("book name :%s\nauthor :%s\nVesion :%d\nYear :%d\nPrice :%d\n",dataBase[i].na,dataBase[i].au,dataBase[i].vr,dataBase[i].yr,dataBase[i].pr);
     	}
     }
-    qsort((void *)k,m-1,sizeof(k[m-1]),comparator);
+    qsort((void *)dataBase,m-1,sizeof(dataBase[m-1]),comparator);
     printf("Books listed in increasing order of price :\n");
     for(i=0;i<=(m-1);i++)
     {
-    	printf("book name :%s\nauthor :%s\nVesion :%d\nYear :%d\nPrice :%d\n",k[i].na,k[i].au,k[i].vr,k[i].yr,k[i].pr);
+    	printf("book name :%s\nauthor :%s\nVesion :%d\nYear :%d\nPrice :%d\n",dataBase[i].na,dataBase[i].au,dataBase[i].vr,dataBase[i].yr,dataBase[i].pr);
     }
     getch();
 }
-
-	
-
-
-
-
